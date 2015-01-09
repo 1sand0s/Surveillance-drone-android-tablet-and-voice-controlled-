@@ -1,0 +1,8 @@
+C:\Users\Computer\Documents\Visual Studio 2010\Projects\contrl\contrl\bin\Debug\contrl.exe
+C:\Users\Computer\Documents\Visual Studio 2010\Projects\contrl\contrl\bin\Debug\contrl.pdb
+C:\Users\Computer\Documents\Visual Studio 2010\Projects\contrl\contrl\obj\x86\Debug\contrl.csprojResolveAssemblyReference.cache
+C:\Users\Computer\Documents\Visual Studio 2010\Projects\contrl\contrl\obj\x86\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\Computer\Documents\Visual Studio 2010\Projects\contrl\contrl\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\Computer\Documents\Visual Studio 2010\Projects\contrl\contrl\obj\x86\Debug\contrl.csproj.GenerateResource.Cache
+C:\Users\Computer\Documents\Visual Studio 2010\Projects\contrl\contrl\obj\x86\Debug\contrl.exe
+C:\Users\Computer\Documents\Visual Studio 2010\Projects\contrl\contrl\obj\x86\Debug\contrl.pdb
