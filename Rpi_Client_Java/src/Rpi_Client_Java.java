@@ -29,19 +29,15 @@ class Rpi_Client_Java extends JFrame implements Runnable,ActionListener
         send=new JButton("Send");
         buf=new char[100];
         close=new JButton("Close");
-		clear=new JButton("Clear");
-		//File  f=new File("C:/Users/Computer/Downloads/17303.png");
-		//BufferedImage io=ImageIO.read(f);
-		//ImageIcon ic=new ImageIcon(io);
-		//speech.setIcon(ic);
-		int PORT=Integer.parseInt(PORTN);
+	clear=new JButton("Clear");
+	int PORT=Integer.parseInt(PORTN);
         socket=new Socket(IP,PORT);
         send.addActionListener(this);
-		send.setActionCommand("send");
-		close.addActionListener(this);
-		close.setActionCommand("close");
-		clear.addActionListener(this);
-		clear.setActionCommand("clear");
+	send.setActionCommand("send");
+	close.addActionListener(this);
+	close.setActionCommand("close");
+	clear.addActionListener(this);
+	clear.setActionCommand("clear");
         din=new BufferedReader(new InputStreamReader(socket.getInputStream()));
         dout=new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));        
         dout.write(IP);
@@ -59,29 +55,29 @@ class Rpi_Client_Java extends JFrame implements Runnable,ActionListener
 		{
 			case send:
 			try
-            {
-                dout.write(sendTo + " "  + "DATA" + " " + textf.getText().toString());    
-                dout.newLine();
-                dout.flush();
-                texta.append("\n" + IP + " Says:" + textf.getText().toString());    
-                textf.setText("");
-            }
-            catch(Exception ex)
-            {
-            }    
+            		{
+                		dout.write(sendTo + " "  + "DATA" + " " + textf.getText().toString());    
+                		dout.newLine();
+                		dout.flush();
+                		texta.append("\n" + IP + " Says:" + textf.getText().toString());    
+                		textf.setText("");
+            		}
+            		catch(Exception ex)
+            		{
+            		}    
 			break;
 			
 			case close:
 			try
-            {
-                dout.write(IP + " LOGOUT");
-                dout.newLine();
-                dout.flush();
-                System.exit(1);
-            }
-            catch(Exception ex)
-            {
-            }
+            		{
+                		dout.write(IP + " LOGOUT");
+                		dout.newLine();
+		                dout.flush();
+		                System.exit(1);
+            		}
+            		catch(Exception ex)
+            		{
+            		}
 			break;
 			
 			case clear:
@@ -94,11 +90,11 @@ class Rpi_Client_Java extends JFrame implements Runnable,ActionListener
         setSize(600,400);
         setLayout(new GridLayout(2,1));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBackground(new Color(0));
+	setBackground(new Color(0));
         add(texta);
         JPanel p=new JPanel();
         p.add(textf);
-		p.add(clear);
+	p.add(clear);
         p.add(send);
         p.add(close);
         add(p);
