@@ -6,3 +6,5 @@ C:\Users\Computer\Documents\Visual Studio 2010\Projects\contrl\contrl\obj\x86\De
 C:\Users\Computer\Documents\Visual Studio 2010\Projects\contrl\contrl\obj\x86\Debug\contrl.csproj.GenerateResource.Cache
 C:\Users\Computer\Documents\Visual Studio 2010\Projects\contrl\contrl\obj\x86\Debug\contrl.exe
 C:\Users\Computer\Documents\Visual Studio 2010\Projects\contrl\contrl\obj\x86\Debug\contrl.pdb
+C:\Users\Computer\Documents\GitHub\Surveillance-drone-android-tablet-and-voice-controlled-\C#_voice_control\contrl\obj\x86\Debug\contrl.exe
+C:\Users\Computer\Documents\GitHub\Surveillance-drone-android-tablet-and-voice-controlled-\C#_voice_control\contrl\obj\x86\Debug\contrl.pdb
