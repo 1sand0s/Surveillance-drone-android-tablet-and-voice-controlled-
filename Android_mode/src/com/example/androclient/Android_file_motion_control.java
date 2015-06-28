@@ -13,9 +13,7 @@ import android.hardware.SensorManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-
 import java.io.*;
-
 import android.view.Display;
 import android.view.MotionEvent;
 import android.view.Surface;
@@ -24,7 +22,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class touch extends Activity implements SensorEventListener {
+public class touch extends Activity implements SensorEventListener
+{
     
     static TextView to,touc;
     static String PORT,IP;
@@ -33,7 +32,8 @@ public class touch extends Activity implements SensorEventListener {
     SensorManager sen;
     Sensor s;
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) 
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.touch_main);
         to=(TextView) findViewById(R.id.textView11);
@@ -57,17 +57,8 @@ public class touch extends Activity implements SensorEventListener {
         s1=s;
         Log.e("Second Screen", g + " " + h);
         Object y[]={g,h,tex,tex1,but,but2,sen1,s1};
-         touche T=new touche();
-         
-         
-         
-         
-         T.execute(y);
-        
-         
-      
-     
- 
+        touche T=new touche();
+        T.execute(y);
     }
   
     protected void onResume()
@@ -118,7 +109,8 @@ public class touch extends Activity implements SensorEventListener {
 	}
 
 	@Override
-	public void onAccuracyChanged(Sensor sensor, int accuracy) {
+	public void onAccuracyChanged(Sensor sensor, int accuracy)
+	{
 		// TODO Auto-generated method stub
 		
 	}
@@ -126,7 +118,7 @@ public class touch extends Activity implements SensorEventListener {
 }
 class touche extends AsyncTask
 {
-	static Socket soc;	
+    static Socket soc;	
     static BufferedReader br;
     static PrintWriter pr;
     static String IP,PORT;
@@ -135,66 +127,56 @@ class touche extends AsyncTask
     static int x,y,z;
     SensorManager sen;
     Sensor s;
-	@Override
-	protected Object doInBackground(Object params[]) 
-	{
-		Log.e("hello3", "hello3");
-		IP=IP.valueOf(params[0]);
-		PORT=PORT.valueOf(params[1]);
-		to=(TextView) params[2];
-		
-		touc=(TextView) params[3];
-		exit=(Button)params[4];
-		lights=(Button)params[5];
-	    sen=(SensorManager)params[6];
-	    s=(Sensor)params[7];
-		
-		
-		
-		try
+    @Override
+    protected Object doInBackground(Object params[]) 
+    {
+	Log.e("hello3", "hello3");
+	IP=IP.valueOf(params[0]);
+	PORT=PORT.valueOf(params[1]);
+	to=(TextView) params[2];
+	touc=(TextView) params[3];
+	exit=(Button)params[4];
+	lights=(Button)params[5];
+	sen=(SensorManager)params[6];
+	s=(Sensor)params[7];
+	try
         {
-			Log.e(IP,PORT);
-			InetAddress inet=InetAddress.getByName(IP);
+		Log.e(IP,PORT);
+		InetAddress inet=InetAddress.getByName(IP);
         	soc=new Socket(inet,Integer.parseInt(PORT));
         	Log.e("hello", "hello");
-            pr=new PrintWriter(new OutputStreamWriter(soc.getOutputStream()),true);
-            br=new BufferedReader(new InputStreamReader(soc.getInputStream()));
-            pr.println(IP);
-            pr.flush();
-            
-        }
-		catch(UnknownHostException e1)
-		{
-			e1.printStackTrace();
-		}
-		catch(IOException e)
+        	pr=new PrintWriter(new OutputStreamWriter(soc.getOutputStream()),true);
+            	br=new BufferedReader(new InputStreamReader(soc.getInputStream()));
+            	pr.println(IP);
+            	pr.flush();
+	}
+	catch(UnknownHostException e1)
+	{
+		e1.printStackTrace();
+	}
+	catch(IOException e)
         {
         	e.printStackTrace();
         }
-        
-        exit.setOnClickListener(new View.OnClickListener() {
+        exit.setOnClickListener(new View.OnClickListener() 
+        {
         	 
-            public void onClick(View arg0) 
-            {
-            	
-					pr.println(IP+" LOGOUT");
-					pr.flush();
-				
-               System.exit(0);
-                
-            }
+            	public void onClick(View arg0) 
+            	{
+            		pr.println(IP+" LOGOUT");
+			pr.flush();
+			System.exit(0);
+            	}
         });
         lights.setOnClickListener(new View.OnClickListener()
         {
 
-			@Override
-			public void onClick(View v) {
-				
-				
-					pr.println(PORT + " "  + "DATA" + " " + "start");
-					pr.flush();
-				
-			}
+		@Override
+		public void onClick(View v) 
+		{
+			pr.println(PORT + " "  + "DATA" + " " + "start");
+			pr.flush();
+		}
         	
         });
 
