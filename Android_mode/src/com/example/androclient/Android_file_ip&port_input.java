@@ -23,46 +23,35 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.os.Build;
 
-public class MainActivity extends ActionBarActivity{
-
+public class MainActivity extends ActionBarActivity
+{
+	static EditText ip,port;
+        @Override
 	
-    Thread t=null;
-    
-    static EditText ip,port;
-    @Override
-    
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-       
-        Button con;
-        TextView te;
-       
-        ip=(EditText)findViewById(R.id.editText1);
-        port=(EditText)findViewById(R.id.editText2);
-        con=(Button)findViewById(R.id.button123);
-        
-        
-        con.setOnClickListener(new OnClickListener()
+        protected void onCreate(Bundle savedInstanceState) 
         {
-
-			@Override
-			public void onClick(View v) {
+        	super.onCreate(savedInstanceState);
+        	setContentView(R.layout.activity_main);
+	        Button con;
+        	TextView te;
+	        ip=(EditText)findViewById(R.id.editText1);
+	        port=(EditText)findViewById(R.id.editText2);
+	        con=(Button)findViewById(R.id.button123);
+        	con.setOnClickListener(new OnClickListener()
+        	{
+		        @Override
+			public void onClick(View v) 
+			{
 		             String h=ip.getText().toString();
 		             String p=port.getText().toString();
 		             Intent i=new Intent(getApplicationContext(),touch.class);
 		             i.putExtra("IP", h);
 		             i.putExtra("PORT",p);
-		             Log.e("n",ip.getText()+"."+port.getText());
+		             //Log.e("n",ip.getText()+"."+port.getText()); //For Testing if it works
 		             startActivity(i);
-		             
-		
-				
-			}
-        	
-        });
-    }
+		        }
+        	});
+    	}
 
 
 
