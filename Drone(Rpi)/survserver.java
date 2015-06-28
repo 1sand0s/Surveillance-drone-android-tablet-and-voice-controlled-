@@ -98,7 +98,7 @@ class AcceptClient extends Thread
 				{
 						pr.write("Moving front");
 						pr.newLine();
-                        pr.flush();
+                				 pr.flush();
 						//front();
 				}
 				else if(f.equalsIgnoreCase("back"))
