@@ -18,13 +18,15 @@ class Transfer_Video extends PApplet
 	/* Class that handles transferring the video as seen by the cam mounted 
 	   on the bot to the android tablet or pc or any client connected to
 	   the bot */
-	static Capture v;
+	static Capture v; // Variable for capturing
 	static Object delay;
-	static File f1;
+	/* 'delay'-> To suspend the execution until an index for the cam has 
+	    been selected*/
+	static File f1; // File to write the image snapped
 	static Transfer_Video current;
-	static boolean set=false;
-	static String index=new String();
-	static String h[];
+	static boolean set=false; // To enable video capture 
+	static String index=new String(); // To receive the index
+	static String h[]; // To list the cameras available
 	public void setup()
 	{
 		size(640,480);
