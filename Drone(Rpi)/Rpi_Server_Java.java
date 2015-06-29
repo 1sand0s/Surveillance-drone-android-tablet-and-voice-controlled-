@@ -1,7 +1,12 @@
+package Rpi_Server;
+
 import java.net.*;
 import java.util.*;
 import java.io.*;
-
+import Rpi_Server.Transfer_Video.Input_Received;
+import javax.swing.*;
+import processing.core.*;
+import processing.video.*;
 public class Rpi_Server_Java
 {
     Rpi_Server_Java() throws Exception
@@ -20,11 +25,12 @@ public class Rpi_Server_Java
     }
 }
 
-class AcceptClient extends Thread
+class AcceptClient extends JFrame implements Runnable
 {
     Socket ClientSocket;
-    BufferedReader br;
-    BufferedWriter pr;
+    static BufferedReader br;
+    static BufferedWriter pr;
+    Thread t;
     static ArrayList<Socket> cliSoc;
     static ArrayList<String>Log;
     /*static 
@@ -51,7 +57,8 @@ class AcceptClient extends Thread
         cliSoc=new ArrayList<Socket>();
         Log=new ArrayList<String>();
         ClientSocket=CSoc;
-
+        setSize(600,600);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         br=new BufferedReader(new InputStreamReader(ClientSocket.getInputStream()));
         pr=new BufferedWriter(new OutputStreamWriter(ClientSocket.getOutputStream()));
         
@@ -61,8 +68,9 @@ class AcceptClient extends Thread
         pr.flush();
         System.out.println("User Logged In :" + LoginName);
         Log.add(LoginName);
-        cliSoc.add(ClientSocket);    
-        start();
+        cliSoc.add(ClientSocket); 
+        t=new Thread(this);
+        t.start();
     }
 
     public void run()
@@ -98,7 +106,7 @@ class AcceptClient extends Thread
 				{
 						pr.write("Moving front");
 						pr.newLine();
-                				 pr.flush();
+                        pr.flush();
 						//front();
 				}
 				else if(f.equalsIgnoreCase("back"))
@@ -127,7 +135,15 @@ class AcceptClient extends Thread
 						pr.write("Initializing cam");
 						pr.newLine();
 						pr.flush();
-						//cam();
+						setVisible(true);
+						processing.core.PApplet s=new Transfer_Video();
+						add(s);
+						s.init();
+				}
+				else if(!(Transfer_Video.set) && Character.isDigit(f.charAt(0)))
+				{
+					System.out.println("check 1  "+f);
+					new Input_Received(f).start();
 				}
 
                 StringTokenizer st=new StringTokenizer(msgFromClient);
@@ -143,6 +159,8 @@ class AcceptClient extends Thread
                         {
                             Log.remove(i);
                             cliSoc.remove(i);
+                            //Transfer_Video.v.stop();
+                           // Transfer_Video.set=false;
                             System.out.println("User " + Sendto +" Logged Out ...");
                             break;
                         }
@@ -184,4 +202,6 @@ class AcceptClient extends Thread
         }        
     }
 }
+
+
 
