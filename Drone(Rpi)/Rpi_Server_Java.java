@@ -40,12 +40,12 @@ public class Rpi_Server_Java
 
 class AcceptClient extends JFrame implements Runnable
 {
-    Socket ClientSocket;
-    static BufferedReader br;
-    static BufferedWriter pr;
-    Thread t;
-    static ArrayList<Socket> cliSoc;
-    static ArrayList<String>Log;
+    Socket ClientSocket; // socket to hold the object passed by the entry class
+    static BufferedReader br; // read from the input stream, i.e from the client
+    static BufferedWriter pr; // write to the output stream, i.e to the client
+    Thread t; // define new thread object
+    static ArrayList<Socket> cliSoc; // To hold the lsit of clients connected 
+    static ArrayList<String>Log; // Log the messages sent by individual clients
     /*static 
     {
 	System.loadLibrary("cprogstart");
