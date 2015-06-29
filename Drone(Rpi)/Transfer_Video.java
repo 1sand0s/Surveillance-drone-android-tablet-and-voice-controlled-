@@ -15,6 +15,9 @@ import processing.video.Capture;
 
 class Transfer_Video extends PApplet
 {
+	/* Class that handles transferring the video as seen by the cam mounted 
+	   on the bot to the android tablet or pc or any client connected to
+	   the bot */
 	static Capture v;
 	static Object delay;
 	static File f1;
