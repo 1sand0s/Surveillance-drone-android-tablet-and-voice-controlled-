@@ -16,6 +16,11 @@ public class Rpi_Server_Java
        It will be rectified at the earliest*/
     Rpi_Server_Java() throws Exception
     {
+    	/* Entry class for accepting clients. Bifurcation of the
+    	   part accepting the clients and the part handling the clients,
+    	   helps in better performance and service providability to 
+    	   individual clients without hampering the connectivity
+    	   to new clients*/
     	ServerSocket soc=new ServerSocket(9000,100);
         System.out.println("Waiting for connection .....");
         while(true)
