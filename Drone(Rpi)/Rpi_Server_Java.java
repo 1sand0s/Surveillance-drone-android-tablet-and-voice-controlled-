@@ -106,7 +106,7 @@ class AcceptClient extends JFrame implements Runnable
 				{
 						pr.write("Moving front");
 						pr.newLine();
-                        pr.flush();
+                        			pr.flush();
 						//front();
 				}
 				else if(f.equalsIgnoreCase("back"))
