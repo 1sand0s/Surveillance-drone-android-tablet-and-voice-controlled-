@@ -26,6 +26,9 @@ public class Rpi_Server_Java
         while(true)
         {    
             Socket CSoc=soc.accept();
+            /* On being connected to a new client, new instace of 
+               the class providing the service ,which is 'AcceptClient'
+               is created*/
             new AcceptClient(CSoc);
         }
     }
