@@ -9,6 +9,11 @@ import processing.core.*;
 import processing.video.*;
 public class Rpi_Server_Java
 {
+    /* Basically handles the request from the client to connect to the 
+       Raspberry Pi, has a capacity of handling 100 clients, There
+       is still an issue about buffer overflow when the android
+       tablet is tilted for a long duration in anyone direction.
+       It will be rectified at the earliest*/
     Rpi_Server_Java() throws Exception
     {
     	ServerSocket soc=new ServerSocket(9000,100);
