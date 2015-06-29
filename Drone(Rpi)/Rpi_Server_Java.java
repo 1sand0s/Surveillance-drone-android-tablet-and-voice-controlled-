@@ -82,8 +82,16 @@ class AcceptClient extends JFrame implements Runnable
         System.out.println("User Logged In :" + LoginName);
         Log.add(LoginName);
         cliSoc.add(ClientSocket); 
-        t=new Thread(this);
-        t.start();
+        t=new Thread(this); 
+        t.start
+        /* Encapsulate reading from the client , in 'run' block nd let it run along its
+           own thread due to the unpredictability of receiving data from the client. 
+           In simple words, the program has no idea when its going to receive data from 
+           the client and so instead of using loops which suspend the execution of the current thread
+           which involves accepting clients, make it run as a new thread thus the program now
+           independently and separately processes connection request and data sent through by
+           the client */
+        
     }
 
     public void run()
