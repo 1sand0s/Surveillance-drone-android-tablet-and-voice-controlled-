@@ -86,21 +86,20 @@ class Transfer_Video extends PApplet
 			synchronized(delay)
 			{
 				
-					try
-					{
-							Send_To_Client("Select One by Choosing Index");
-							delay.wait();
-							System.out.println("Check3  "+index);
-							Send_To_Client(index);
-							v=new Capture(current,h[Integer.parseInt(index)]);
-							v.start();
-							set=true;
-							
-					}
-					catch(Exception e)
-					{
+				try
+				{
+					Send_To_Client("Select One by Choosing Index");
+					delay.wait();
+					System.out.println("Check3  "+index);
+					Send_To_Client(index);
+					v=new Capture(current,h[Integer.parseInt(index)]);
+					v.start();
+					set=true;
+				}
+				catch(Exception e)
+				{
 						
-					}
+				}
 				
 			}
 		}
@@ -117,9 +116,9 @@ class Transfer_Video extends PApplet
 			synchronized(delay)
 			{
 				
-					index=f;
-					System.out.println("Check 2 "+index);
-					delay.notify();
+				index=f;
+				System.out.println("Check 2 "+index);
+				delay.notify();
 			}
 		}
 	}
